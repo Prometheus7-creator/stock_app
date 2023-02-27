@@ -41,7 +41,7 @@ const ResultPage = () =>{
     return (<div className="result-container">
         <NavBar/>
         <h2 style={{marginTop: '4rem'}}>{("01. symbol" in data)?data['01. symbol']: null}</h2>
-        <div style={{width: '80%', height: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <div style={{width: '50%', height: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
         <BarChart chartData={userData}/>
         </div>
     </div>)
