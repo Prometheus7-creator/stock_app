@@ -188,11 +188,35 @@ body::-webkit-scrollbar {
     margin-bottom: 2rem;
 }
 
-.feature:hover{
-    /* box-shadow: 5px 10px #393E46; */
+/* .feature:hover{
+    box-shadow: 5px 10px #393E46;
     height: 65%;
     width: 45%;
     font-size: 1.2rem;
+} */
+
+
+.features{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.feature:nth-child(2){
+    transition-delay: 200ms;
+}
+
+@media(prefers-reduced-motion) {
+    .features{
+        transition: none;
+    }
 }
 
 .page-footer{
@@ -294,6 +318,33 @@ body::-webkit-scrollbar {
     height: 60%;
     width: 40%;
     color: white;
+}
+
+.contact-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:45rem;
+    background-color: #222831;
+}
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #141414;
+    border-radius: 10px;
+    box-shadow: 5px 10px #141414;
+    height: 60%;
+    width: 40%;
+    color: white;
+}
+
+input[name="message"]{
+    height: 10rem;
+    width: 300px;
 }
 
 input{

@@ -1,9 +1,25 @@
 import phone from '../assets/phone.jpg';
 import currency from '../assets/currency.jpg';
 import screen from '../assets/screen.jpg';
+import { useEffect } from 'react';
 
 
 const Features = () => {
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach((entry) => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('show');
+      } else{
+        entry.target.classList.remove('show');
+      }
+    })
+  })
+
+    useEffect(()=>{
+      const hiddenElements = document.querySelectorAll('.features');
+      hiddenElements.forEach(el => observer.observe(el));
+    },[])
+
     return (
         <>
         <div className="features">
