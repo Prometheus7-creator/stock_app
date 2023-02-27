@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -7,13 +7,18 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate } from 'react-router-dom';
 
 
-function NavBar() {
+function NavBar({status, logout}) {
 
   const THROTTLE_DELAY = 500;
 
   const [keyword, setKeyword] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
+
+  // useEffect(()=>{
+  //   getSession()
+  //   .then(session => setLoggedIn(true))
+  // }, [getSession])
 
   const debounce = (callback, delay = THROTTLE_DELAY) => {
     var time;
@@ -86,10 +91,14 @@ function NavBar() {
             </div>
             :null}
           </Form>
+          {(!status)?
+          <div>
           <Button variant="light" onClick={loginPage} className="login-btn"
             >Sign in</Button>
             <Button variant="secondary" onClick={signUpPage} className="signup-btn"
             >Create account</Button>
+            </div>:<Button onClick={logout} varian="secondary">Logout</Button>
+          }
         </Navbar.Collapse>
       </Container>
     </Navbar>

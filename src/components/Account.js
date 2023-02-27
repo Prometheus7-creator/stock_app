@@ -52,7 +52,7 @@ const Account = (props) => {
         const user = Pool.getCurrentUser();
         if(user){
             user.signOut();
-            navigate("/nosh");
+            navigate("/");
         } 
     }
     return(
