@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { AccountContext }  from './Account';
 // import Status from './Status';
 import { useNavigate } from 'react-router-dom';
+import NavBar from './Navbar';
 
 const Login = () => {
 
@@ -32,6 +33,7 @@ const Login = () => {
     }
 
     return(<div className="login-container">
+        <NavBar/>
         <div style={{"fontSize": "0.8rem", "color": "red"}}>{error}</div>
         <div className="login-form">
             <form onSubmit={handleSubmit}>

@@ -3,6 +3,7 @@ import UserPool from './UserPool';
 import { CognitoUserAttribute, CognitoUser } from 'amazon-cognito-identity-js';
 import PasswordChecklist from "react-password-checklist"
 import { useNavigate } from 'react-router-dom';
+import NavBar from './Navbar';
 
 const SignUp = ({setCurrPage}) => {
 
@@ -48,6 +49,7 @@ const SignUp = ({setCurrPage}) => {
 
     return(
         <div className="signup-container">
+            <NavBar/>
             {!verify?
             <>
             <div style={{"fontSize": "0.8rem", "color": "red"}}>{error}</div>

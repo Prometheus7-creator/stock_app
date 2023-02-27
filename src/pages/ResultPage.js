@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import NavBar from "../components/Navbar";
 
 const ResultPage = () =>{
     const [searchParams, setSearchParams] = useSearchParams();
@@ -19,7 +20,8 @@ const ResultPage = () =>{
     }, [])
 
     return (<div className="result-container">
-        <h2>{("01. symbol" in data)?data['01. symbol']: null}</h2>
+        <NavBar/>
+        <h2 style={{marginTop: '4rem'}}>{("01. symbol" in data)?data['01. symbol']: null}</h2>
         <div className="result-box">
         {Object.keys(data).map(key=><div className="result-row">
             <div>{key}</div>

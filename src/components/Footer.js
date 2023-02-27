@@ -15,7 +15,7 @@ const Footer = () => <footer className="page-footer font-small blue pt-4">
                 <h5 className="text-uppercase">Company</h5>
                 <ul className="list-unstyled">
                     <li><a href="#!">About Us</a></li>
-                    <li><a href="#!">Contact Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
                 </ul>
             </div>
 

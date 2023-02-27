@@ -63,7 +63,7 @@ function NavBar() {
   return (
     <Navbar className="fixed-top shadow nav-bar" variant="dark" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">Investo</Navbar.Brand>
+        <Navbar.Brand href="/">Investo</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav

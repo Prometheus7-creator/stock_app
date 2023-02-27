@@ -237,7 +237,7 @@ body::-webkit-scrollbar {
     justify-content: center;
     align-items: center;
     height: 45rem;
-    background-color: #222831;
+    /* background-color: #222831; */
 }
 
 .result-container h2{
@@ -326,7 +326,7 @@ body::-webkit-scrollbar {
     justify-content: center;
     align-items: center;
     height:45rem;
-    background-color: #222831;
+    /* background-color: #222831; */
 }
 
 .contact-form{
@@ -334,9 +334,8 @@ body::-webkit-scrollbar {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #141414;
+    background-color: #222831;
     border-radius: 10px;
-    box-shadow: 5px 10px #141414;
     height: 60%;
     width: 40%;
     color: white;

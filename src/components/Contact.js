@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import NavBar from './Navbar';
 
 const Contact = () => {
 
@@ -14,6 +15,7 @@ const Contact = () => {
     }
 
     return(<div className="contact-container">
+        <NavBar/>
         <div style={{"fontSize": "0.8rem", "color": "red"}}>{error}</div>
         <div className="contact-form">
             <form onSubmit={handleSubmit}>
