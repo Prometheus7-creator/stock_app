@@ -79,6 +79,7 @@ function NavBar() {
               type="search"
               placeholder="Search any stock (E.g: TATA Motors)"
               className="me-2 search-bar"
+              id="search-inp"
               aria-label="Search"
               onKeyUp={searchStock}
               value={keyword}

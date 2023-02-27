@@ -22,10 +22,10 @@ const Footer = () => <footer className="page-footer font-small blue pt-4">
             <div className="col-md-3 mb-md-0 mb-3">
                 <h5 className="text-uppercase">Services</h5>
                 <ul className="list-unstyled">
-                    <li><a href="#!">Ticker Search</a></li>
-                    <li><a href="#!">Trading Sessions</a></li>
-                    <li><a href="#!">Strategies</a></li>
-                    <li><a href="#!">Analytics</a></li>
+                    <li><a href="#!" onClick={()=>{document.getElementById('search-inp').focus()}}>Ticker Search</a></li>
+                    <li><a href="/signup">Trading Sessions</a></li>
+                    <li><a href="/signup">Strategies</a></li>
+                    <li><a href="/signup">Analytics</a></li>
                 </ul>
             </div>
 

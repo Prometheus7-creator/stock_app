@@ -11,8 +11,8 @@ const CarouselSlides = () => {
     <Carousel style={{marginTop: '3.5rem'}}>
       <Carousel.Item interval={1000}>
         <img
-          className="d-block"
-          style={{'height': '40rem', 'width': '100%'}}
+          className="d-block carousel-img"
+          // style={{'height': '40rem', 'width': '100%'}}
           src={graph}
           alt="First slide"
         />
@@ -23,8 +23,8 @@ const CarouselSlides = () => {
       </Carousel.Item>
       <Carousel.Item interval={500}>
         <img
-          className="d-block"
-          style={{'height': '40rem', 'width': '100%'}}
+          className="d-block carousel-img"
+          // style={{'height': '40rem', 'width': '100%'}}
           src={table}
           alt="Second slide"
         />
@@ -35,8 +35,8 @@ const CarouselSlides = () => {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block"
-          style={{'height': '40rem', 'width': '100%'}}
+          className="d-block carousel-img"
+          // style={{'height': '40rem', 'width': '100%'}}
           src={carlos}
           alt="Third slide"
         />
