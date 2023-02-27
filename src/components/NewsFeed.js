@@ -21,9 +21,9 @@ const NewsFeed = () =>{
         fetch(`https://www.alphavantage.co/query?function=NEWS_SENTIMENT&time_from=${year+month+day}T0000&limit=100&apikey=JAARZWOLNUOZ6AI6`, {method: 'GET'})
         .then(response => response.json())
         .then(response => {
-            console.log(response['feed']);
+            // console.log(response['feed']);
             setNewsData(response['feed']);
-            console.log(newsData)    
+            // console.log(newsData)    
         })
     }
 
