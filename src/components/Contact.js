@@ -15,6 +15,7 @@ const Contact = () => {
         
         emailjs.sendForm('service_yygvh5r', 'template_v9wphi4', event.target, 'YHXbCEd5OXCguk-1u')
         .then((response)=>{
+            alert('Thank you for writing to us. We\'ll get back soon!')
             window.location.reload();
             console.log(response);
         }, (error)=>{

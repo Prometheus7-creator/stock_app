@@ -25,21 +25,14 @@ function NavBar() {
     };
   }
 
-  const searchStock = debounce(() =>{
+  const searchStock = debounce(async () =>{
     const key = keyword;
 
     if (keyword.trim() !== ""){
-    const options = {
-      method: 'GET',
-      headers: {
-          'X-RapidAPI-Key': '189a1b6639msheebed2040ce3668p15e63bjsn9c53a08c4837',
-          'X-RapidAPI-Host': 'twelve-data1.p.rapidapi.com'
-      }
-  };
   
-  fetch(`https://twelve-data1.p.rapidapi.com/symbol_search?symbol=${key}&outputsize=30`, options)
+ await fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${key}&apikey=JAARZWOLNUOZ6AI6`, {method: 'GET'})
       .then(response => response.json())
-      .then(response => {setSearchResults(response['data'])})
+      .then(response => {setSearchResults(response['bestMatches'])})
       .catch(err => console.error(err));
 }
   });
@@ -86,20 +79,12 @@ function NavBar() {
               onChange={handleChange}
             />
            
-           <div style={{
-            position: 'absolute',
-            // height: '10rem',
-            // width: '10rem',
-            backgroundColor: 'white',
-            marginTop: '2.1rem',
-            width: '22%',
-            zIndex: '1',
-            maxHeight: '10rem',
-            overflow: 'auto',
-           }}>
+           {(searchResults.length>0)?
+           <div className="search-results">
             {searchResults.map((val, index)=><div className='result' key={index}>
-              <a href={`/search?name=${val.symbol}`}>{val.instrument_name}</a></div>)}
+              <a href={`/search?name=${val['1. symbol']}`}>{val['2. name']}</a></div>)}
             </div>
+            :null}
           </Form>
           <Button variant="light" onClick={loginPage} className="login-btn"
             >Sign in</Button>

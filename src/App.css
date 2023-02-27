@@ -20,22 +20,49 @@ body::-webkit-scrollbar {
     font-size: small;
 }
 
-.result{
-    padding: 0.3rem;
+.search-results{
+    position: absolute;
+    height: 10rem;
+    background-color: white;
+    margin-top: 2.1rem;
+    width: 22%;
+    z-index: 1;
+    max-height: 10rem;
+    overflow: auto;
+    font-size: medium;
 }
 
 .result a{
+    display: flex;
     text-decoration: none;
     color: black;
+    width: 100%;
+}
+
+.result a:hover{
+    color: white;
 }
 
 .result:hover{
     background-color: #222831;
 }
 
-.result a:hover{
-    color:white;
+/* .result{
+    padding: 0.3rem;
+    color: white;
 }
+
+.result a{
+    text-decoration: none;
+}
+
+.result:hover{
+    background-color: #222831;
+}
+
+.result:hover, a:hover{
+    color: white;
+} */
 
 .login-btn{
     border-radius: 20px;
@@ -378,6 +405,10 @@ input{
 }
 
 @media only screen and (max-width: 700px) {
+
+    .search-results{
+        width: 45%;
+    }
 
     .bar-chart{
         width: 80%;

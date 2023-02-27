@@ -15,9 +15,10 @@ const ResultPage = () =>{
     });
 
     useEffect(()=>{
+        const search_promise = async () =>{
         const symbol = searchParams.get('name');
 
-        fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}.bse&apikey=JAARZWOLNUOZ6AI6`, {method: 'GET'})
+        await fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=JAARZWOLNUOZ6AI6`, {method: 'GET'})
         .then(response => response.json())
         .then(response => {
             response = response['Global Quote'];
@@ -35,7 +36,9 @@ const ResultPage = () =>{
             })
         })
         .catch(err => console.error(err));
+    }
 
+        search_promise();
     }, [])
 
     return (<div className="result-container">
