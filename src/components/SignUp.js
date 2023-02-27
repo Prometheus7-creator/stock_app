@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import UserPool from './UserPool';
 import { CognitoUserAttribute, CognitoUser } from 'amazon-cognito-identity-js';
 import PasswordChecklist from "react-password-checklist"
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = ({setCurrPage}) => {
 
@@ -10,17 +11,19 @@ const SignUp = ({setCurrPage}) => {
     const [password, setPassword] = useState("");
     const [verify, setVerify] = useState(false);
     const [otp, setOtp] = useState("");
+    const [error, setError] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = (event) =>{
         event.preventDefault();
         let attributeList = [];
-        let attri_name = new CognitoUserAttribute({'Name':'name', 'Value': name});
-        attributeList.push(attri_name);
+        // let attri_name = new CognitoUserAttribute({'Name':'name', 'Value': name});
+        // attributeList.push(attri_name);
         UserPool.signUp(email, password, attributeList, null, (err, data) => {
             if(err){
                 console.log(err);
+                setError("Invalid email or password");
             } else{
-                console.log(data);
                 setVerify(true);
             }
         });
@@ -32,15 +35,13 @@ const SignUp = ({setCurrPage}) => {
           Username: email,
           Pool: UserPool,
         });
-        console.log(user);
+        
         user.confirmRegistration(otp, true, (err, data) => {
           if (err) {
-            console.log(err);
             alert("Couldn't verify account");
           } else {
-            console.log(data);
             alert('Account verified successfully');
-            setCurrPage("Log In");
+            navigate("/login");
           }
         });
     }
@@ -48,6 +49,8 @@ const SignUp = ({setCurrPage}) => {
     return(
         <div className="signup-container">
             {!verify?
+            <>
+            <div style={{"fontSize": "0.8rem", "color": "red"}}>{error}</div>
             <div className="signup-form">
             <form onSubmit={handleSubmit}>
                 <h2>Sign Up</h2>
@@ -74,7 +77,7 @@ const SignUp = ({setCurrPage}) => {
                 <div className='auth-btn'>
                     <button type="submit">Sign Up</button>
                 </div>
-            </form></div>: 
+            </form></div></>: 
             <form onSubmit={verifyUser}>
                 <div className='auth-label'>
                     <label htmlFor='name'>Email OTP</label>
