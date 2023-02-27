@@ -5,13 +5,25 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
+
 function NavBar() {
+
+  const THROTTLE_DELAY = 500;
 
   const [keyword, setKeyword] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  const searchStock = async () =>{
-    console.log(keyword);
+  const debounce = (callback, delay = THROTTLE_DELAY) => {
+    var time;
+    return (...args) => {
+      clearTimeout(time);
+      time = setTimeout(() => {
+        callback(...args);
+      }, delay);
+    };
+  }
+
+  const searchStock = debounce(() =>{
     const key = keyword;
 
     if (keyword.trim() !== ""){
@@ -23,12 +35,12 @@ function NavBar() {
       }
   };
   
-  await fetch(`https://twelve-data1.p.rapidapi.com/symbol_search?symbol=${key}&outputsize=30`, options)
+  fetch(`https://twelve-data1.p.rapidapi.com/symbol_search?symbol=${key}&outputsize=30`, options)
       .then(response => response.json())
       .then(response => {setSearchResults(response['data'])})
       .catch(err => console.error(err));
 }
-  }
+  });
 
   const handleChange = (event) =>{
     const value = event.target.value;
