@@ -240,9 +240,9 @@ body::-webkit-scrollbar {
     /* background-color: #222831; */
 }
 
-.result-container h2{
+/* .result-container h2{
     color: white;
-}
+} */
 
 .result-box{
     display: flex;
