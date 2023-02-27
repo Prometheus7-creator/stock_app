@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useNavigate } from 'react-router-dom';
 
 
 function NavBar() {
@@ -12,6 +13,7 @@ function NavBar() {
 
   const [keyword, setKeyword] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const navigate = useNavigate();
 
   const debounce = (callback, delay = THROTTLE_DELAY) => {
     var time;
@@ -48,6 +50,14 @@ function NavBar() {
     if (value === ""){
       setSearchResults([])
     }
+  }
+
+  const loginPage = () => {
+    navigate("/login");
+  }
+
+  const signUpPage = () => {
+    navigate("/signup");
   }
 
   return (
@@ -90,9 +100,9 @@ function NavBar() {
               <a href={`/search?name=${val.symbol}`}>{val.instrument_name}</a></div>)}
             </div>
           </Form>
-          <Button variant="light" className="login-btn"
+          <Button variant="light" onClick={loginPage} className="login-btn"
             >Sign in</Button>
-            <Button variant="secondary" className="signup-btn"
+            <Button variant="secondary" onClick={signUpPage} className="signup-btn"
             >Create account</Button>
         </Navbar.Collapse>
       </Container>

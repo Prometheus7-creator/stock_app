@@ -241,3 +241,70 @@ body::-webkit-scrollbar {
     width: 100%;
     margin-top: 0.5rem;
 }
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:45rem;
+    /* background-color: #222831; */
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #222831;
+    border-radius: 10px;
+    height: 50%;
+    width: 40%;
+    color: white;
+}
+
+.auth-btn{
+    margin-top: 1rem;
+}
+
+.auth-btn button{
+    width: 100%;
+    border: 1px solid #00ADB5;
+    border-radius: 5px;
+    background-color: #00ADB5;
+    color: #141414;
+}
+
+.signup-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:45rem;
+    /* background-color: #222831; */
+}
+
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #222831;
+    border-radius: 10px;
+    height: 60%;
+    width: 40%;
+    color: white;
+}
+
+input{
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid silver;
+}
+
+.password-checklist{
+    padding-top: 0.5rem;
+    height: 35%;
+    font-size: small;
+}
