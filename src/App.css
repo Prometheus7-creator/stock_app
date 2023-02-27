@@ -136,7 +136,7 @@ body::-webkit-scrollbar {
 
 .news-card p {
     /* margin: 1rem; */
-    font-size: 1rem;
+    font-size: small;
     letter-spacing: 1px;
     opacity: 0.8;
     color: white;
