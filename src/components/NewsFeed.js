@@ -13,15 +13,17 @@ const NewsFeed = () =>{
     const feedcontainer = useRef();
 
     const loadData = () =>{
-        const year = new Date().toLocaleDateString('en', {year: 'numeric'});
-        const month = new Date().toLocaleDateString('en', {month: '2-digit'});
-        const day = parseInt(new Date().toLocaleDateString('en', {day: '2-digit'}))-1;
+        const date = new Date();
+        const year = date.toLocaleDateString('en', {year: 'numeric'});
+        const month = date.toLocaleDateString('en', {month: '2-digit'});
+
+        const day = parseInt(date.toLocaleDateString('en', {day: '2-digit'}))>1? date.toLocaleDateString('en', {day: '2-digit'})-1: date.toLocaleDateString('en', {day: '2-digit'});
         // console.log(year + month + day-10);
 
         fetch(`https://www.alphavantage.co/query?function=NEWS_SENTIMENT&time_from=${year+month+day}T0000&limit=100&apikey=JAARZWOLNUOZ6AI6`, {method: 'GET'})
         .then(response => response.json())
         .then(response => {
-            // console.log(response['feed']);
+            // console.log(year+month+day);
             setNewsData(response['feed']);
             // console.log(newsData)    
         })
