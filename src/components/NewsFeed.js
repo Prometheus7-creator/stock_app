@@ -17,7 +17,7 @@ const NewsFeed = () =>{
         const year = date.toLocaleDateString('en', {year: 'numeric'});
         const month = date.toLocaleDateString('en', {month: '2-digit'});
 
-        const day = parseInt(date.toLocaleDateString('en', {day: '2-digit'}))>1? date.toLocaleDateString('en', {day: '2-digit'})-1: date.toLocaleDateString('en', {day: '2-digit'});
+        const day = parseInt(date.toLocaleDateString('en', {day: '2-digit'}))>1? date.toLocaleDateString('en', {day: '2-digit'}): date.toLocaleDateString('en', {day: '2-digit'});
         // console.log(year + month + day-10);
 
         fetch(`https://www.alphavantage.co/query?function=NEWS_SENTIMENT&time_from=${year+month+day}T0000&limit=100&apikey=JAARZWOLNUOZ6AI6`, {method: 'GET'})
